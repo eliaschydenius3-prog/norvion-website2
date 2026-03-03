@@ -44,7 +44,10 @@ section { position:relative; z-index:2; padding:100px clamp(24px,6vw,80px); }
 .hero-coming { margin-top:48px; display:flex; flex-direction:column; align-items:center; gap:10px; animation:fadeUp .9s ease .7s forwards; opacity:0; }
 .coming-label { font-size:9px; letter-spacing:0.5em; text-transform:uppercase; color:var(--muted); }
 .coming-text { font-family:'Rajdhani',sans-serif; font-weight:300; font-size:clamp(18px,3.5vw,32px); letter-spacing:0.15em; color:transparent; -webkit-text-stroke:1px rgba(142,207,234,0.3); }
-.hero-scroll { margin-top:60px; display:flex; flex-direction:column; align-items:center; gap:8px; animation:fadeUp .9s ease .9s forwards; opacity:0; }
+.hero-btn { display:inline-flex; align-items:center; gap:10px; margin-top:40px; border:1px solid rgba(142,207,234,0.3); padding:14px 28px; font-family:'Rajdhani',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.35em; text-transform:uppercase; color:var(--ice); text-decoration:none; background:rgba(142,207,234,0.06); transition:background .2s, border-color .2s; cursor:none; animation:fadeUp .9s ease .85s forwards; opacity:0; }
+.hero-btn:hover { background:rgba(142,207,234,0.14); border-color:rgba(142,207,234,0.5); }
+.hero-btn-arrow { font-size:16px; transition:transform .2s; }
+.hero-btn:hover .hero-btn-arrow { transform:translateY(4px); }
 .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, var(--ice), transparent); animation:scrollPulse 2s ease-in-out infinite; }
 @keyframes scrollPulse { 0%,100%{opacity:0.3;height:30px} 50%{opacity:0.8;height:50px} }
 .scroll-label { font-size:8px; letter-spacing:0.4em; text-transform:uppercase; color:var(--muted); }
@@ -64,7 +67,8 @@ section { position:relative; z-index:2; padding:100px clamp(24px,6vw,80px); }
 .product-card.kids-max  { border-top:2px solid #f07020; }
 .product-card.n1        { border-top:2px solid var(--ice); }
 .card-tag { font-size:8px; letter-spacing:0.4em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
-.card-icon { width:56px; height:56px; margin-bottom:22px; }
+.card-device { width:100%; display:flex; justify-content:center; margin-bottom:28px; }
+.card-device svg { filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5)); }
 .card-name { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:26px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
 .card-name.teal { color:#0a9e7a; } .card-name.orange { color:#f07020; } .card-name.ice { color:var(--ice); }
 .card-subtitle { font-size:11px; color:var(--text2); letter-spacing:0.08em; margin-bottom:20px; }
@@ -117,8 +121,7 @@ footer { position:relative; z-index:2; padding:28px clamp(24px,6vw,80px); border
 .side-text.right { right:20px; transform:translateY(-50%) rotate(90deg); }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-.reveal { opacity:0; transform:translateY(24px); transition:opacity .8s ease,transform .8s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal { opacity:1; transform:none; }
 
 @media(max-width:768px) {
   .about-grid { grid-template-columns:1fr; gap:40px; }
@@ -182,6 +185,9 @@ footer { position:relative; z-index:2; padding:28px clamp(24px,6vw,80px); border
     <div class="coming-label">Coming in</div>
     <div class="coming-text">A few years</div>
   </div>
+  <a href="#products" class="hero-btn">
+    See our products <span class="hero-btn-arrow">↓</span>
+  </a>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <div class="scroll-label">Scroll</div>
@@ -237,4 +243,139 @@ footer { position:relative; z-index:2; padding:28px clamp(24px,6vw,80px); border
       <div class="card-subtitle">44mm · GPS Smartwatch</div>
       <div class="card-features">
         <div class="card-feature"><div class="feat-dot orange"></div>GPS + WiFi + LBS tracking</div>
-        <div cla
+        <div class="card-feature"><div class="feat-dot orange"></div>SOS + location share</div>
+        <div class="card-feature"><div class="feat-dot orange"></div>Calling + voice messages</div>
+        <div class="card-feature"><div class="feat-dot orange"></div>Auto school timetable</div>
+        <div class="card-feature"><div class="feat-dot orange"></div>7-day location history</div>
+      </div>
+      <div class="card-price">99–129€</div>
+      <div class="card-price-sub">Ocean Blue · Sunset Orange · Arctic White</div>
+    </div>
+
+    <div class="product-card n1">
+      <div class="card-badge phone">Coming later</div>
+      <div class="card-tag">Smartphone · Mid-Range</div>
+      <svg class="card-icon" viewBox="0 0 60 60" fill="none">
+        <rect x="14" y="4" width="32" height="52" rx="6" stroke="#8ecfea" stroke-width="1.5" fill="rgba(142,207,234,0.04)"/>
+        <rect x="20" y="12" width="20" height="30" rx="2" stroke="#8ecfea" stroke-width="0.8" fill="none" opacity="0.3"/>
+        <circle cx="30" cy="51" r="2" stroke="#8ecfea" stroke-width="1" fill="none" opacity="0.5"/>
+        <line x1="24" y1="7" x2="34" y2="7" stroke="#8ecfea" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+        <circle cx="37" cy="7" r="1" fill="#8ecfea" opacity="0.5"/>
+      </svg>
+      <div class="card-name ice">Norvion N1</div>
+      <div class="card-subtitle">6.6" AMOLED · Mid-Range Phone</div>
+      <div class="card-features">
+        <div class="card-feature"><div class="feat-dot ice"></div>50MP camera with OIS</div>
+        <div class="card-feature"><div class="feat-dot ice"></div>5000mAh · 67W charging</div>
+        <div class="card-feature"><div class="feat-dot ice"></div>3.5mm headphone jack</div>
+        <div class="card-feature"><div class="feat-dot ice"></div>CrysOS · zero bloat</div>
+        <div class="card-feature"><div class="feat-dot ice"></div>Classic + modern icon themes</div>
+      </div>
+      <div class="card-price">349–449€</div>
+      <div class="card-price-sub">Midnight Black · Arctic White · Ice Blue</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-eyebrow">Who we are</div>
+      <div class="section-title">Built in <span>Finland</span></div>
+      <div class="section-sub">Norvion is a Finnish technology brand building smartphones and smartwatches that put users first. No ads. No tracking. No bloatware. Just hardware that works and software that respects you.</div>
+      <div class="about-values">
+        <div class="value-block">
+          <div class="value-title">Privacy</div>
+          <div class="value-text">No third-party data collection. CrysOS is built clean from the ground up.</div>
+        </div>
+        <div class="value-block">
+          <div class="value-title">Simplicity</div>
+          <div class="value-text">No bloat, no junk apps, no subscriptions. You buy it, you own it.</div>
+        </div>
+        <div class="value-block">
+          <div class="value-title">Durability</div>
+          <div class="value-text">Built to last. Long software support is not optional.</div>
+        </div>
+        <div class="value-block">
+          <div class="value-title">Finnish</div>
+          <div class="value-text">Designed in Finland. Nordic values baked into every product decision.</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-logo-big">
+        <svg viewBox="0 0 100 120" fill="none">
+          <path d="M50 4C50 4 92 28 92 66C92 95 74 116 50 116C26 116 8 95 8 66C8 28 50 4 50 4Z" stroke="#8ecfea" stroke-width="1.2" fill="rgba(142,207,234,0.03)"/>
+          <path d="M50 14C50 14 82 34 82 65C82 88 68 108 50 108C32 108 18 88 18 65C18 34 50 14 50 14Z" stroke="#8ecfea" stroke-width="0.6" fill="none" opacity="0.25"/>
+          <line x1="50" y1="14" x2="50" y2="108" stroke="#8ecfea" stroke-width="1" opacity="0.5"/>
+          <line x1="50" y1="32" x2="24" y2="50" stroke="#8ecfea" stroke-width="0.7" opacity="0.5"/>
+          <line x1="50" y1="48" x2="18" y2="64" stroke="#8ecfea" stroke-width="0.7" opacity="0.4"/>
+          <line x1="50" y1="64" x2="22" y2="78" stroke="#8ecfea" stroke-width="0.7" opacity="0.3"/>
+          <line x1="50" y1="32" x2="76" y2="50" stroke="#8ecfea" stroke-width="0.7" opacity="0.5"/>
+          <line x1="50" y1="48" x2="82" y2="64" stroke="#8ecfea" stroke-width="0.7" opacity="0.4"/>
+          <line x1="50" y1="64" x2="78" y2="78" stroke="#8ecfea" stroke-width="0.7" opacity="0.3"/>
+          <circle cx="50" cy="14" r="2.5" fill="#8ecfea"/>
+        </svg>
+      </div>
+      <div class="about-stats">
+        <div class="stat-block"><div class="stat-num">3</div><div class="stat-label">Products planned</div></div>
+        <div class="stat-block"><div class="stat-num">FI</div><div class="stat-label">Country of origin</div></div>
+        <div class="stat-block"><div class="stat-num">0</div><div class="stat-label">Bloatware apps</div></div>
+        <div class="stat-block"><div class="stat-num">1</div><div class="stat-label">OS. CrysOS.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY -->
+<section id="notify">
+  <div class="notify-wrap reveal">
+    <div class="section-eyebrow">Stay in the loop</div>
+    <div class="section-title">Be the <span>first</span> to know</div>
+    <div class="section-sub" style="margin:0 auto;text-align:center;">We'll reach out when Norvion is ready. No spam. One email when it matters.</div>
+    <div class="notify-row">
+      <input class="notify-input" type="email" placeholder="your@email.com" id="emailInput">
+      <button class="notify-btn" id="notifyBtn">Notify me</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2026 <span>Norvion</span> &nbsp;·&nbsp; Helsinki, Finland</div>
+  <div class="footer-right">
+    <a href="#">Instagram</a>
+    <a href="#">X</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.product-card,.value-block,.stat-block').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='8px';cursor.style.height='8px';});
+});
+
+const canvas=document.getElementById('c'),ctx=canvas.getContext('2d');
+let W,H,pts=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+class Pt{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.r=Math.random()*1.2+0.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.5+0.1;this.p=Math.random()*Math.PI*2;}draw(){this.p+=.007;const a=this.a*(.5+.5*Math.sin(this.p));ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(142,207,234,${a})`;ctx.fill();this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.reset();}}
+for(let i=0;i<100;i++)pts.push(new Pt());
+function lines(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(142,207,234,${.05*(1-d/90)})`;ctx.lineWidth=.4;ctx.stroke();}}}
+(function loop(){ctx.clearRect(0,0,W,H);lines();pts.forEach(p=>p.draw());requestAnimationFrame(loop);})();
+
+// sections always visible
+
+document.getElementById('notifyBtn').addEventListener('click',function(){
+  const i=document.getElementById('emailInput');
+  if(i.value.includes('@')){this.textContent='Done ✓';this.style.color='#8ecfea';i.value='';i.placeholder="You're on the list.";}
+});
+</script>
+</body>
+</html>
